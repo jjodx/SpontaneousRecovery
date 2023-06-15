@@ -1,0 +1,17 @@
+# install.packages("correlation")
+library(correlation)
+setwd("C:\\Users\\jjorb\\OneDrive - KU Leuven\\Projects\\SpontaneousRecovery\\Data Spontaneous Recovery")
+myDataframe <- read.table("implicit_spontrec_groups_NoTitle.txt", sep = ",")
+colnames(myDataframe) <- c('Implicit','SpontRec','Group')
+myDataframe$Group <- factor(myDataframe$Group)
+correlation(myDataframe, multilevel = TRUE)
+
+myDataframe2 <- read.table("explicit_WM-K_groups.txt", sep = ",")
+colnames(myDataframe2) <- c('Explicit','WMK','Group')
+myDataframe2$Group <- factor(myDataframe2$Group)
+correlation(myDataframe2, multilevel = TRUE)
+
+myDataframe3 <- read.table("implicit_WM-K_groups.txt", sep = ",")
+colnames(myDataframe3) <- c('Implicit','WMK','Group')
+myDataframe3$Group <- factor(myDataframe3$Group)
+correlation(myDataframe3, multilevel = TRUE)
